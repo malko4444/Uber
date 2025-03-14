@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Start() {
   return (
-    <div>Start</div>
+    <div>Start the home component </div>
   )
 }

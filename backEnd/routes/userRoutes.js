@@ -24,6 +24,6 @@ router.post('/login', [
 // this is the way to use the middleware in the route
 
 router.get('/userProfile', userMiddlewars.authUser,userProfile)
-router.post('/logout', userMiddlewars.authUser,logOutUser )
+router.get('/logout', userMiddlewars.authUser,logOutUser )
 
 module.exports = router;

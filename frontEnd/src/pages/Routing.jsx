@@ -6,12 +6,26 @@ import UserSignup from './UserSignup';
 import CaptainSignup from './CaptainSignup';
 import CaptainLogin from './CaptainLogin';
 import Start from './Start';
+import UserProtectedWrapper from './userProtectedWrapper';
+import UserLogout from './UserLogout';
 
 export default function Routing() {
     return (
         <Router>
              <Routes>
-                <Route path="/start" element={<Start />} />
+                <Route path="/start" element={
+                    <UserProtectedWrapper >
+                        <Start />
+                    </UserProtectedWrapper>
+                } />
+
+            </Routes>
+            <Routes>
+                <Route path="/user/logout" element={
+                    <UserProtectedWrapper >
+                        <UserLogout />
+                    </UserProtectedWrapper>
+                } />
 
             </Routes>
            

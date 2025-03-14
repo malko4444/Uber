@@ -27,8 +27,9 @@ export default function UserSignup() {
             const data = res.data;
             setUserData(data.user);
             console.log("data", data);
+            localStorage.setItem('token', data.token);
             
-            navigate('/start');
+            navigate('/userLogin');
             
         }
         // console.log(userData);

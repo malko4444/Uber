@@ -16,13 +16,16 @@ export default function userLogin() {
       email,
       password
     }
+    
+    
     const res = axios.post(`${import.meta.env.VITE_BASE_URL}/user/login`, userData)
       .then(response => {
         console.log("Status:", response.status);
         if (response.status === 200) {
           const data = response.data;
-          setUserData(data.user);
-          console.log("data", data);
+          setUserData(data);
+          console.log("data", data.token);
+          localStorage.setItem('token', data.token);
           navigate('/start');
         }
         console.log("Data:", response.data); // The response object containing token & user
