@@ -2,6 +2,7 @@ const captainModel = require("../models/captainModel");
 const captainServices = require("../services/captainServices");
 const { validationResult } = require('express-validator');
 const blackListModel = require("../models/blackListModel");
+const asyncHandler = require("../utils/asyncHandler");
 
 module.exports.registerCaptain = async (req, res) => {
     const error = validationResult(req);
@@ -63,3 +64,10 @@ module.exports.logoutCaptain = async (req, res) => {
     await blackListModel.create({token});
     res.status(200).json({message: "Logout successfully"});
 }
+
+module.exports.getUser = asyncHandler(async (req, res) => {
+    res.clearCookie("token");
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
+    await blackListModel.create({token});
+    res.status(200).json({message: "Logout successfully"});
+})

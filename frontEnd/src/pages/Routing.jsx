@@ -8,6 +8,7 @@ import CaptainLogin from './CaptainLogin';
 import Start from './Start';
 import UserProtectedWrapper from './userProtectedWrapper';
 import UserLogout from './UserLogout';
+import UserTodo from './UserTodo';
 
 export default function Routing() {
     return (
@@ -44,6 +45,9 @@ export default function Routing() {
             </Routes>
             <Routes>
                 <Route path="/captainLogin" element={<CaptainLogin />} />
+            </Routes>
+            <Routes>
+                <Route path="/userTodo" element={<UserTodo />} />
             </Routes>
         </Router>
     );

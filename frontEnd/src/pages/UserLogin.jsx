@@ -18,7 +18,7 @@ export default function userLogin() {
     }
     
     
-    const res = axios.post(`${import.meta.env.VITE_BASE_URL}/user/login`, userData)
+    const res = axios.post("http://localhost:3000/user/login", userData)
       .then(response => {
         console.log("Status:", response.status);
         if (response.status === 200) {
@@ -26,6 +26,7 @@ export default function userLogin() {
           setUserData(data);
           console.log("data", data.token);
           localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
           navigate('/start');
         }
         console.log("Data:", response.data); // The response object containing token & user
